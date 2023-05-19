@@ -8,7 +8,7 @@ import org.springframework.security.config.Customizer;
 
 
 @Configuration
-public class SpringSecurityExperiment {
+public class SpringSecurityBasic {
 
 	@Bean
 	public SecurityFilterChain customeChain(HttpSecurity httpSecure) throws Exception {

@@ -1,4 +1,4 @@
-package com.startCoreProduct.JamesClear.HelloService;
+package com.startCoreProduct.JamesClear.controller;
 
 import static org.springframework.hateoas.server.mvc.WebMvcLinkBuilder.methodOn;
 
@@ -18,20 +18,23 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
 
+import com.startCoreProduct.JamesClear.Exception.UserNotFoundException;
 import com.startCoreProduct.JamesClear.JPA.UserRespository;
-import com.startCoreProduct.JamesClear.PostService.Post;
+import com.startCoreProduct.JamesClear.bean.Post;
+import com.startCoreProduct.JamesClear.bean.User;
+import com.startCoreProduct.JamesClear.services.UserDaoService;
 
 import jakarta.validation.Valid;
 
 @RestController
 @RequestMapping(path = "/jpaUser")
-public class UserJPAResource {
+public class UserJPAController {
 
 	private UserDaoService userDaoService;
 	
 	private UserRespository userRespo;
 
-	public UserJPAResource(UserDaoService userDaoService, UserRespository usrRespository) {
+	public UserJPAController(UserDaoService userDaoService, UserRespository usrRespository) {
 		super();
 		this.userDaoService = userDaoService;
 		this.userRespo =  usrRespository;
@@ -55,12 +58,12 @@ public class UserJPAResource {
 		// Start HateOas
 		EntityModel<User> entityModelUser = EntityModel.of(user);
  		WebMvcLinkBuilder link = WebMvcLinkBuilder.linkTo(
- 				WebMvcLinkBuilder.methodOn(UserJPAResource.class).getAllUsers()
+ 				WebMvcLinkBuilder.methodOn(UserJPAController.class).getAllUsers()
  				);
 		entityModelUser.add(link.withRel("get-all-users"));
  		
 	   
-		link = WebMvcLinkBuilder.linkTo(WebMvcLinkBuilder.methodOn(UserJPAResource.class).deleteUser(id));
+		link = WebMvcLinkBuilder.linkTo(WebMvcLinkBuilder.methodOn(UserJPAController.class).deleteUser(id));
 		entityModelUser.add(link.withRel("delete-user-by-id"));
 		
 		link  = WebMvcLinkBuilder.linkTo(methodOn(this.getClass()).createUserEntity(user));

@@ -1,4 +1,4 @@
-package com.startCoreProduct.JamesClear.HelloService;
+package com.startCoreProduct.JamesClear.services;
 
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
@@ -7,6 +7,8 @@ import java.util.List;
 import java.util.function.Predicate;
 
 import org.springframework.stereotype.Component;
+
+import com.startCoreProduct.JamesClear.bean.User;
 
 // I want Spring to manage this 
 @Component

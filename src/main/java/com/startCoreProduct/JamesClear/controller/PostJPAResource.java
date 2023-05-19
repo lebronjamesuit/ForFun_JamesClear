@@ -1,4 +1,4 @@
-package com.startCoreProduct.JamesClear.PostService;
+package com.startCoreProduct.JamesClear.controller;
 
 import java.net.URI;
 import java.util.Optional;
@@ -11,10 +11,11 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
 
-import com.startCoreProduct.JamesClear.HelloService.User;
-import com.startCoreProduct.JamesClear.HelloService.UserNotFoundException;
+import com.startCoreProduct.JamesClear.Exception.UserNotFoundException;
 import com.startCoreProduct.JamesClear.JPA.PostRespository;
 import com.startCoreProduct.JamesClear.JPA.UserRespository;
+import com.startCoreProduct.JamesClear.bean.Post;
+import com.startCoreProduct.JamesClear.bean.User;
 
 import jakarta.validation.Valid;
 

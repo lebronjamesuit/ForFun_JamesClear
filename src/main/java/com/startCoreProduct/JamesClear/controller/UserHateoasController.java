@@ -1,4 +1,4 @@
-package com.startCoreProduct.JamesClear.HelloService;
+package com.startCoreProduct.JamesClear.controller;
 
 import static org.springframework.hateoas.server.mvc.WebMvcLinkBuilder.methodOn;
 
@@ -17,15 +17,19 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
 
+import com.startCoreProduct.JamesClear.Exception.UserNotFoundException;
+import com.startCoreProduct.JamesClear.bean.User;
+import com.startCoreProduct.JamesClear.services.UserDaoService;
+
 import jakarta.validation.Valid;
 
 @RestController
 @RequestMapping("/notuse")
-public class UserResource {
+public class UserHateoasController {
 
 	private UserDaoService userDaoService;
 
-	public UserResource(UserDaoService userDaoService) {
+	public UserHateoasController(UserDaoService userDaoService) {
 		super();
 		this.userDaoService = userDaoService;
 	}
@@ -48,12 +52,12 @@ public class UserResource {
 		// Start HateOas
 		EntityModel<User> entityModelUser = EntityModel.of(user);
  		WebMvcLinkBuilder link = WebMvcLinkBuilder.linkTo(
- 				WebMvcLinkBuilder.methodOn(UserResource.class).getAllUsers()
+ 				WebMvcLinkBuilder.methodOn(UserHateoasController.class).getAllUsers()
  				);
 		entityModelUser.add(link.withRel("get-all-users"));
  		
 	   
-		link = WebMvcLinkBuilder.linkTo(WebMvcLinkBuilder.methodOn(UserResource.class).deleteUser(user));
+		link = WebMvcLinkBuilder.linkTo(WebMvcLinkBuilder.methodOn(UserHateoasController.class).deleteUser(user));
 		entityModelUser.add(link.withRel("delete-user-by-id"));
 		
 		link  = WebMvcLinkBuilder.linkTo(methodOn(this.getClass()).createUserEntity(user));

@@ -1,4 +1,4 @@
-package com.startCoreProduct.JamesClear.HelloService;
+package com.startCoreProduct.JamesClear.bean;
 
 import java.time.LocalDate;
 import java.util.List;
@@ -7,7 +7,6 @@ import org.hibernate.annotations.Generated;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonProperty;
-import com.startCoreProduct.JamesClear.PostService.Post;
 
 import jakarta.persistence.Entity;
 import jakarta.persistence.FetchType;

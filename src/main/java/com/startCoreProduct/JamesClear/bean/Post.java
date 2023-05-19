@@ -1,7 +1,6 @@
-package com.startCoreProduct.JamesClear.PostService;
+package com.startCoreProduct.JamesClear.bean;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
-import com.startCoreProduct.JamesClear.HelloService.User;
 
 import jakarta.persistence.Entity;
 import jakarta.persistence.FetchType;

@@ -1,8 +1,10 @@
-package com.startCoreProduct.JamesClear.HelloService;
+package com.startCoreProduct.JamesClear.services;
 
 import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
+
+import com.startCoreProduct.JamesClear.bean.User;
 
 
 // This is no @component anotation
